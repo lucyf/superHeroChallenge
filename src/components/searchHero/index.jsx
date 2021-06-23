@@ -7,6 +7,8 @@ const SearchHeroComponent = () =>{
 
 const [searchValue, setSearchValue] = useState('')
 const [searchResult, setSearchResult] = useState([])
+const condition = searchResult !== undefined && searchValue !== ''
+
 
 const catchInput = (e)=>{
     let trimedSearch = e.trim()
@@ -15,12 +17,16 @@ const catchInput = (e)=>{
 }
 
 const searchHero = ()=>{
-    axios.get('https://www.superheroapi.com/api.php/10225900091910251/search/' + searchValue).then(result =>{
-           setSearchResult(result.data.results)
-        }).catch(console.log)
+    if(searchValue !== ''){
+        axios.get('https://www.superheroapi.com/api.php/10225900091910251/search/' + searchValue).then(result =>{
+            setSearchResult(result.data.results)
+         }).catch(console.log)
+    }else{
+        alert('Introduce el nombre de un superheroe!')
+    }
+
 }
 
-console.log(searchResult)
 
     return(
         <>
@@ -37,17 +43,19 @@ console.log(searchResult)
                 </Form>
             </div>
             <hr/>
-            <div id="results"className="row m-3">
-               {searchResult.map((result) => {
-                   return <Card style={{ width: '18rem' }} key={result.id} className="p-3 m-3">
+            <div id="results"className="row justify-content-center m-3">
+               {condition ? <ul className="row justify-content-center">
+                {searchResult.map((result) => {
+                   return <li className="list-unstyled p-3" key={result.id}>
+                   <Card style={{ width: '15rem' }} key={result.id} className="p-3 mr-2">
                    <Card.Img variant="top" src={result.image.url} />
                    <Card.Body>
                      <Card.Title>{result.name}</Card.Title>
-                     <Button variant="primary">Agregar al Equipo</Button>
+                     <Button variant="danger" className="mr-2 mb-2 p-1">Agregar al Equipo</Button>
+                     <Button variant="primary" className="mr-2 mb-2 p-1">Ver detalles</Button>
                    </Card.Body>
-                 </Card>
-               
-                }) }
+                 </Card> </li> }) } 
+                 </ul> : <h6 style={{opacity:0.5}}>Busca un superheroe disponible.</h6> }
             </div>
         </div>
         </>
