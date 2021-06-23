@@ -1,0 +1,15 @@
+.background{
+    background-image: url('https://i.imgur.com/cF726ve.jpg');
+    background-size: contain;
+    padding: 15rem;
+  
+  }
+
+.msg{
+    color: aliceblue;
+    text-shadow: 2px 2px #000000;
+}
+
+.font-impact{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
