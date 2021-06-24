@@ -2,11 +2,13 @@ import { Form, Button, Card} from "react-bootstrap";
 import '../searchHero/searchHero.css';
 import { useState } from "react";
 import axios from 'axios'
+import { useContext } from "react";
+import { dataContext } from "../../context/dataContext";
 
 const SearchHeroComponent = () =>{
 
 const [searchValue, setSearchValue] = useState('')
-const [searchResult, setSearchResult] = useState([])
+const {setSearchResult, searchResult, onAddToTeam} = useContext(dataContext)
 const condition = searchResult !== undefined && searchValue !== ''
 
 
@@ -32,8 +34,8 @@ const searchHero = ()=>{
         <>
         <div>
             <div className="text-left p-2 ml-2 mt-2">
-                <h2>Arma tu Equipo</h2>
-                <h5>Busca los integrantes de tu Liga</h5>
+                <h3>Arma tu Equipo</h3>
+                <p> Busca los integrantes de tu Liga</p>
             </div>
             
             <div className="ml-2 mt-2 text-left" id="search-form">
@@ -51,7 +53,7 @@ const searchHero = ()=>{
                    <Card.Img variant="top" src={result.image.url} />
                    <Card.Body>
                      <Card.Title>{result.name}</Card.Title>
-                     <Button variant="danger" className="mr-2 mb-2 p-1">Agregar al Equipo</Button>
+                     <Button variant="danger" className="mr-2 mb-2 p-1" onClick={() => {onAddToTeam(result)}}>Agregar al Equipo</Button>
                      <Button variant="primary" className="mr-2 mb-2 p-1">Ver detalles</Button>
                    </Card.Body>
                  </Card> </li> }) } 

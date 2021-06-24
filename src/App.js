@@ -1,19 +1,20 @@
 import './App.css';
 import NavbarComponent from './components/navbar';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { ApiProvider } from './context/apiContext';
+
 import { BrowserRouter,Switch,  Route } from "react-router-dom";
 import SuperheroesContainer from './containers/superheroes';
 import { LoginProvider } from './context/loginContext';
 import PresentationComponent from './components/presentation';
 import LoginComponent from './components/login';
+import { DataProvider } from './context/dataContext';
 
 
 
 function App() {
   return (
     <div className="App ">
-      <ApiProvider>
+      <DataProvider>
       <LoginProvider>
       <BrowserRouter>
          <NavbarComponent/>
@@ -26,7 +27,7 @@ function App() {
               </Switch>   
       </BrowserRouter>
       </LoginProvider>
-      </ApiProvider>
+      </DataProvider>
     </div>
   );
 }
