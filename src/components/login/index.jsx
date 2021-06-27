@@ -8,7 +8,7 @@ import { loginContext } from "../../context/loginContext";
 
 
 const LoginComponent = () =>{
-    const {setToken} =useContext(loginContext)
+    const {handleToken} =useContext(loginContext)
     const history = useHistory()
 
     
@@ -43,8 +43,7 @@ const LoginComponent = () =>{
             axios.post(url,data).then(function(result){
                 const tokenData = JSON.stringify(result.data.token)
                 history.push('/superheroes')
-                setToken(tokenData)
-                localStorage.setItem('token',tokenData)
+                handleToken(tokenData)
              }).catch(()=>{
                  alert('Los datos ingresados son incorrectos. Vuelva a intentarlo.')
              })        

@@ -1,6 +1,7 @@
+import { useEffect } from 'react';
 import { useContext } from 'react';
 import { Navbar, Nav, Button} from 'react-bootstrap';
-import { useHistory, Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { loginContext } from '../../context/loginContext';
 
 
@@ -9,13 +10,17 @@ const NavbarComponent = () =>{
   const {token, setToken} = useContext(loginContext)
   const history = useHistory()
   const condition = token.length !== 0
-
-
+   
+  useEffect(()=>{
+    handleLogOut()
+  },[])
+  
   const handleLogOut = ()=>{
     setToken('')
     localStorage.clear()
     history.push('/')
   }
+
 
     return(
         <>
