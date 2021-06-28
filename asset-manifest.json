@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/superHeroChallenge/static/css/main.2919b165.chunk.css",
+    "main.js": "/superHeroChallenge/static/js/main.efd1345e.chunk.js",
+    "main.js.map": "/superHeroChallenge/static/js/main.efd1345e.chunk.js.map",
+    "runtime-main.js": "/superHeroChallenge/static/js/runtime-main.283f1f10.js",
+    "runtime-main.js.map": "/superHeroChallenge/static/js/runtime-main.283f1f10.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/superHeroChallenge/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.8f607da8.chunk.js": "/superHeroChallenge/static/js/2.8f607da8.chunk.js",
+    "static/js/2.8f607da8.chunk.js.map": "/superHeroChallenge/static/js/2.8f607da8.chunk.js.map",
+    "static/js/3.1620f43d.chunk.js": "/superHeroChallenge/static/js/3.1620f43d.chunk.js",
+    "static/js/3.1620f43d.chunk.js.map": "/superHeroChallenge/static/js/3.1620f43d.chunk.js.map",
+    "index.html": "/superHeroChallenge/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/superHeroChallenge/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.2919b165.chunk.css.map": "/superHeroChallenge/static/css/main.2919b165.chunk.css.map",
+    "static/js/2.8f607da8.chunk.js.LICENSE.txt": "/superHeroChallenge/static/js/2.8f607da8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.283f1f10.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.8f607da8.chunk.js",
+    "static/css/main.2919b165.chunk.css",
+    "static/js/main.efd1345e.chunk.js"
+  ]
+}
