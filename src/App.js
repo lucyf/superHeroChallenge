@@ -20,7 +20,7 @@ function App() {
          <NavbarComponent/>
               <Switch>
           <div>
-                  <Route exact path='/' component={PresentationComponent}/>
+                  <Route exact path='/superHeroChallenge/' component={PresentationComponent}/>
                   <Route path='/login' component={LoginComponent}/>
                   <Route path='/superheroes' component={SuperheroesContainer}/>
           </div>
