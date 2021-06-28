@@ -16,7 +16,6 @@ const condition = searchResult !== undefined && searchValue !== ''
 
 
 const catchInput = (e)=>{
-    // e.preventDefault()
     let trimedSearch = e.trim()
     setSearchValue(trimedSearch.toLowerCase());  
     
@@ -39,13 +38,13 @@ const searchHero = (e)=>{
         <>
         <div>
             <div className="text-left p-2 ml-2 mt-2">
-                <h3>Arma tu Equipo</h3>
-                <p> Busca los integrantes de tu Liga</p>
+                <h3 className="ppal-headings">Arma tu Equipo</h3>
+                <p className="paragraph"> Busca los integrantes de tu Liga</p>
             </div>
             
             <div className="ml-2 mt-2 text-left" id="search-form">
                 <Form inline className="m-2">
-                    <Form.Control className="search-input" type="text" value={searchValue} placeholder="Nombre del Superheroe" onChange={(e)=>{catchInput(e.target.value)}} />
+                    <Form.Control className="search-input" type="text" value={searchValue} placeholder="Nombre del Superheroe" onChange={(e)=>{catchInput(e.target.value)}} onKeyPress={(e) => { e.key === 'Enter' && e.preventDefault(); }}/>
                     <Button className="ml-1" variant="outline-success" onClick={searchHero} >Search</Button>
                 </Form>
             </div>

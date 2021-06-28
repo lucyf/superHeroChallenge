@@ -1,3 +1,19 @@
 .search-input{
     width:80%;
 }
+
+@media (max-width: 530px) {
+
+    .ppal-headings{
+        font-size: 1.2rem;
+    }
+
+    .paragraph{
+        font-size: 0.8rem;
+    }
+    .search-input{
+        width:80%;
+    }
+    
+
+  }

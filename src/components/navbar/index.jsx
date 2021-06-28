@@ -1,22 +1,20 @@
-import { useEffect } from 'react';
+
 import { useContext } from 'react';
 import { Navbar, Nav, Button} from 'react-bootstrap';
 import { Link, useHistory } from "react-router-dom";
-import { loginContext } from '../../context/loginContext';
+import { dataContext } from '../../context/dataContext';
+
 
 
 
 const NavbarComponent = () =>{
-  const {token, setToken} = useContext(loginContext)
+  const {deleteAll} = useContext(dataContext)
   const history = useHistory()
-  const condition = token.length !== 0
+  const condition = localStorage.length !== 0
    
-  useEffect(()=>{
-    handleLogOut()
-  },[])
-  
+
   const handleLogOut = ()=>{
-    setToken('')
+    deleteAll()
     localStorage.clear()
     history.push('/')
   }
@@ -27,12 +25,8 @@ const NavbarComponent = () =>{
         <div>
         <Navbar bg="dark" variant="dark">
     <Navbar.Brand href="#home">SuperHero</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav.Link href="/">Home</Nav.Link>
-      <Nav.Link href="#features">Nosotros</Nav.Link>
-      
-    </Nav>
-    <Nav>
+
+    <Nav className="ml-auto" >
        
        {condition ? <Button className="ml-3" onClick={handleLogOut}>Log Out</Button>
     : <Link to={`/login`}><Button  variant="warning">Log In</Button>
