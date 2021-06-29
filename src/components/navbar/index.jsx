@@ -16,7 +16,7 @@ const NavbarComponent = () =>{
   const handleLogOut = ()=>{
     deleteAll()
     localStorage.clear()
-    history.push('/')
+    history.push('/superHeroChallenge')
   }
 
 
