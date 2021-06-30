@@ -43,9 +43,9 @@ const LoginComponent = () =>{
             axios.post(url,data).then(function(result){
               
                 const tokenData = JSON.stringify(result.data.token)
-                if(tokenData.length !== 0){
-                  history.push('/superheroes')
+                if(localStorage.length !== 0){
                   handleToken(tokenData)
+                  history.push('/superheroes')
                 }else{
                   alert('No has iniciado sesión!')
                 }
