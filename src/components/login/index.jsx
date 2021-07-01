@@ -39,11 +39,11 @@ const LoginComponent = () =>{
                 email:values.email,
                 password: values.password
             }
-            const url = 'http://challenge-react.alkemy.org/'
+            const url = 'https://challenge-react.alkemy.org/'
             axios.post(url,data).then(function(result){
               
                 const tokenData = JSON.stringify(result.data.token)
-                if(localStorage.length !== 0){
+                if(tokenData.length !== 0){
                   handleToken(tokenData)
                   history.push('/superheroes')
                 }else{
