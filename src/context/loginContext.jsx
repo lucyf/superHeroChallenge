@@ -8,8 +8,10 @@ export const LoginProvider = ({children})=> {
         localStorage.setItem('token',data)
     }
 
+    const isLogin = localStorage.length !== 0
+    console.log(isLogin)
    
-    return <loginContext.Provider value= {{handleToken }}>
+    return <loginContext.Provider value= {{handleToken, isLogin }}>
         {children}
     </loginContext.Provider>
 

@@ -39,11 +39,16 @@ const LoginComponent = () =>{
                 email:values.email,
                 password: values.password
             }
-            const url = 'http://challenge-react.alkemy.org/'
+            const url = 'https://challenge-react.alkemy.org/'
             axios.post(url,data).then(function(result){
+              
                 const tokenData = JSON.stringify(result.data.token)
-                history.push('/superheroes')
-                handleToken(tokenData)
+                if(tokenData.length !== 0){
+                  handleToken(tokenData)
+                  history.push('/superheroes')
+                }else{
+                  alert('No has iniciado sesión!')
+                }
              }).catch(()=>{
                  alert('Los datos ingresados son incorrectos. Vuelva a intentarlo.')
              })        
