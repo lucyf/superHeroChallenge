@@ -4,7 +4,7 @@ import '../heroTeam/heroTeam.css';
 import SuperHeroCardComponent from '../superheroCard/index';
 
 const HeroTeamComponent = () =>{
-    const {addTeam, powerStats, average} = useContext(dataContext);
+    const {addTeam, powerStats} = useContext(dataContext);
     const condition = addTeam === undefined;
     const sortablePowerStats = [];
 
@@ -29,7 +29,7 @@ const HeroTeamComponent = () =>{
                     <h5 className="text-center secondary-headings">PowerStats</h5>
                     <ul className="list-unstyled mt-2 paragraph">
                     {sortablePowerStats.map((stat)=>{
-                    return  <li>{stat[0]} : {stat[1]}</li>
+                    return  <li key={stat.index}>{stat[0]} : {stat[1]}</li>
                         })}
                         </ul>
                 </div>

@@ -39,18 +39,19 @@ const LoginComponent = () =>{
                 email:values.email,
                 password: values.password
             }
-            const url = 'https://challenge-react.alkemy.org/'
+            const url = 'http://challenge-react.alkemy.org/'
             axios.post(url,data).then(function(result){
               
                 const tokenData = JSON.stringify(result.data.token)
                 if(tokenData.length !== 0){
-                  handleToken(tokenData)
-                  history.push('/superheroes')
+                  handleToken(tokenData)  
+                  history.push('/superheroes') 
                 }else{
                   alert('No has iniciado sesión!')
                 }
              }).catch(()=>{
-                 alert('Los datos ingresados son incorrectos. Vuelva a intentarlo.')
+               alert('Los datos ingresados son incorrectos, intentalo nuevamente!')
+               console.log()
              })        
         },
       });
@@ -67,7 +68,6 @@ const LoginComponent = () =>{
                     type="email" 
                     placeholder="Enter email"
                     name="email"
-                    type="email"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.email}
@@ -83,7 +83,6 @@ const LoginComponent = () =>{
                     type="password"
                     placeholder="Password"
                     name="password"
-                    type="password"
                     onChange={formik.handleChange}
                     onBlur={formik.handleBlur}
                     value={formik.values.password}

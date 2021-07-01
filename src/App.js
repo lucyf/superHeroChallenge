@@ -23,8 +23,8 @@ function App() {
           <div>
                   <Route exact path='/superHeroChallenge' component={PresentationComponent}/>
                   <Route path='/login' component={LoginComponent}/>
-                  <Route path='/superheroes' component={SuperheroesContainer}/>
-                  {/* <PrivateRoute  component={SuperheroesContainer} path='/superheroes' /> */}
+                  {/* <Route path='/superheroes' component={SuperheroesContainer}/> */}
+                  <PrivateRoute  component={SuperheroesContainer} path='/superheroes' />
           </div>
               </Switch>   
       </BrowserRouter>

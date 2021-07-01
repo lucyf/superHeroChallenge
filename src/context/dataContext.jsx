@@ -7,8 +7,8 @@ export const DataProvider = ({children})=> {
     const [searchResult, setSearchResult] = useState([])
     const [addTeam, setAddTeam] = useState([])
     const [powerStats, setPowerstats] = useState()
-    const [average, setAverage] = useState([])
-    const sum = addTeam.length
+
+
 
 const onAddToTeam = (result)=>{
 
@@ -79,7 +79,7 @@ const isTeamGoodEnough = ()=>{
 
 
    
-    return <dataContext.Provider value= {{searchResult, setAverage, average, deleteAll, setPowerstats, handleDelete, setSearchResult, onAddToTeam, addTeam, powerStats}}>
+    return <dataContext.Provider value= {{searchResult, deleteAll, setPowerstats, handleDelete, setSearchResult, onAddToTeam, addTeam, powerStats}}>
         {children}
     </dataContext.Provider>
 
