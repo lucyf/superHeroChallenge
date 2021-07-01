@@ -1,11 +1,21 @@
 import { useContext } from 'react';
 import { dataContext } from '../../context/dataContext';
-import '../heroTeam/heroTeam.css'
+import '../heroTeam/heroTeam.css';
 import SuperHeroCardComponent from '../superheroCard/index';
 
 const HeroTeamComponent = () =>{
-    const {addTeam, powerStats, average} = useContext(dataContext)
-    const condition = addTeam === undefined
+    const {addTeam, powerStats, average} = useContext(dataContext);
+    const condition = addTeam === undefined;
+    const sortablePowerStats = [];
+
+    for (let stat in powerStats) {
+        sortablePowerStats.push([stat, powerStats[stat]]);
+    }
+    sortablePowerStats.sort(function(a, b) {
+        return b[1] - a[1];
+    });
+    
+    
 
     return(
         <>
@@ -17,16 +27,11 @@ const HeroTeamComponent = () =>{
             <div id="team-box" className="row m-0">
                 <div className="col-xs-1 powerStat-set ">
                     <h5 className="text-center secondary-headings">PowerStats</h5>
-                    {powerStats.map((stats)=>{
-                    return <ul className="list-unstyled mt-2 paragraph">
-                            <li>Inteligencia : {stats.Inteligencia}</li>
-                            <li>Durabilidad : {stats.Durabilidad}</li>
-                            <li>Cambate : {stats.Combate}</li>
-                            <li>Poder : {stats.Poder}</li>
-                            <li>Fuerza : {stats.Fuerza}</li>
-                            <li>Velocidad : {stats.Velocidad}</li>
-                    </ul>
-                    })}
+                    <ul className="list-unstyled mt-2 paragraph">
+                    {sortablePowerStats.map((stat)=>{
+                    return  <li>{stat[0]} : {stat[1]}</li>
+                        })}
+                        </ul>
                 </div>
                 
                 <div className="col team-set">

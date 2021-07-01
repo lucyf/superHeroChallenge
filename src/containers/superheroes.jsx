@@ -7,7 +7,7 @@ import { useEffect } from "react";
 const SuperheroesContainer = () =>{
     const {setPowerstats, setAverage} = useContext(dataContext)
     useEffect(()=>{
-        setPowerstats([{ Inteligencia: 0, Fuerza: 0, Velocidad: 0, Durabilidad: 0, Combate: 0, Poder: 0, Peso: 0, Estatura:0}])
+        setPowerstats({ Inteligencia: 0, Fuerza: 0, Velocidad: 0, Durabilidad: 0, Combate: 0, Poder: 0, Peso: 0, Estatura:0})
     },[])
     return(
         <>
